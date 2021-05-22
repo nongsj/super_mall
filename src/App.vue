@@ -1,32 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <main-tabbar />
+    <keep-alive exclude="detail">
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+  // @ 表示src目录,所以如果指定src目录下的文件的话，只需要 @/xxx/xxx   即可。
+  import MainTabbar from "@/components/content/main_tabbar/MainTabbar.vue";
 
-#nav {
-  padding: 30px;
-}
+  export default {
+    components: { MainTabbar },
+  };
+</script>
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+<style lang="scss">
+  @import "~@/assets/css/base.css";
 </style>
